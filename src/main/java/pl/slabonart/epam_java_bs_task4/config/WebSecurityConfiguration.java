@@ -1,4 +1,4 @@
-package pl.slabonart.jabs_4.config;
+package pl.slabonart.epam_java_bs_task4.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

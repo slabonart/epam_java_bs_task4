@@ -1,4 +1,4 @@
-package pl.slabonart.jabs_4.service;
+package pl.slabonart.epam_java_bs_task4.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import pl.slabonart.jabs_4.model.UserEntity;
-import pl.slabonart.jabs_4.repository.UserRepository;
+import pl.slabonart.epam_java_bs_task4.model.UserEntity;
+import pl.slabonart.epam_java_bs_task4.repository.UserRepository;
 
 @Component
 @RequiredArgsConstructor

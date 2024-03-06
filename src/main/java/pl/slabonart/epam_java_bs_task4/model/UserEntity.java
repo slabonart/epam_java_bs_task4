@@ -1,4 +1,4 @@
-package pl.slabonart.jabs_4.model;
+package pl.slabonart.epam_java_bs_task4.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

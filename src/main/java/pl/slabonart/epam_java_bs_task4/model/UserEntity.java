@@ -8,10 +8,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Data
@@ -27,9 +30,12 @@ public class UserEntity implements UserDetails {
 
     private String userPassword;
 
+    @OneToMany(mappedBy = "userEntity", fetch = FetchType.EAGER)
+    private Set<UserGrantedAuthority> authorities;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
@@ -41,6 +47,7 @@ public class UserEntity implements UserDetails {
     public String getUsername() {
         return userName;
     }
+
 
     @Override
     public boolean isAccountNonExpired() {

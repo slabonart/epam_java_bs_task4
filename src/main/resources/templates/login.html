@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" , charset="UTF-8">
+    <link rel="stylesheet" href="https://cnd.jsdeliver.net/npm/bootstrap@5.2.3/dist/css/bootstrp.min.css"/>
+    <title>Title</title>
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div style="...">
+        <div th:if="${param.error != null}" class="allert alert-danger">
+            <div th:if="${accountLocked == true}">
+                <span th:text="#{user.assount.locked}"/>
+            </div>
+            <div th:unless="${accountLocked == true}">
+                <span th:text="#{login.error"/>
+            </div>
+        </div>
+        <form th:action="@{/login" method="post">
+            <div class="border border-secondary p-3 rounded">
+                <p> Login Form</p>
+                <p>
+                    <input type="text" name="username" class="form-control" placeholder="User name" required autofocus/>
+                </p>
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

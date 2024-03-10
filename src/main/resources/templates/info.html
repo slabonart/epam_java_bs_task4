@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/header.css}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Info page</title>
 </head>
 <body>
+<div th:insert="fragments/header::header"></div>
     Welcome to the Info Page ;)
 </body>
 </html>

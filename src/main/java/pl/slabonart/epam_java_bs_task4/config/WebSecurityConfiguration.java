@@ -33,8 +33,8 @@ public class WebSecurityConfiguration {
         return http.authorizeRequests(requests ->
                         requests
                                 .antMatchers(HttpMethod.GET, "/about", "/", "/login*", "/blocked", "/css/**").permitAll()
-                                .antMatchers(HttpMethod.GET, "/info").hasAnyAuthority("VIEW_INFO")
-                                .antMatchers(HttpMethod.GET, "/admin").hasAnyAuthority("VIEW_ADMIN")
+                                .antMatchers(HttpMethod.GET, "/info").hasAuthority("VIEW_INFO")
+                                .antMatchers(HttpMethod.GET, "/admin").hasAuthority("VIEW_ADMIN")
                                 .anyRequest().authenticated()
                 )
                 .formLogin(formLogin -> formLogin.loginPage("/login")
@@ -49,21 +49,11 @@ public class WebSecurityConfiguration {
     }
 
     @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails userDetails = User.withDefaultPasswordEncoder()
-                .username("artur")
-                .password("password")
-                .roles("USER")
-                .build();
-        return new InMemoryUserDetailsManager(userDetails);
-    }
-
-    @Bean
     public AuthenticationProvider authProvider(UserDetailsService userDetailsService) {
 
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
-        provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+        provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
 

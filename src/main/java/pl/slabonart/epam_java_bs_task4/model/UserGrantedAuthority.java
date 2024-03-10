@@ -34,7 +34,6 @@ public class UserGrantedAuthority implements GrantedAuthority {
         return "UserGrantedAuthority{" +
                 "id=" + id +
                 ", authority='" + authority + '\'' +
-                ", userEntity=" + userEntity +
                 '}';
     }
 }

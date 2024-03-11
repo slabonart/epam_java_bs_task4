@@ -9,8 +9,8 @@
 <body>
 <div th:insert="fragments/header::header"></div>
 <h1>Blocked Users</h1>
-<div th:if="${blockedUsers}" class="table100">
-    <table>
+<div th:if="${blockedUsers}">
+    <table class="table100">
         <thead>
         <tr class="table100-head">
             <th class="column1">User</th>

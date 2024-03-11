@@ -19,7 +19,7 @@ public class LoginAttemptService {
 
     public static final int MAX_ATTEMPTS = 3;
 
-    public static final int BLOCK_DURATION_IN_SEC = 10;
+    public static final int BLOCK_DURATION_IN_SEC = 600;
 
     private final LoadingCache<String, CachedValue> attemptsCache;
 

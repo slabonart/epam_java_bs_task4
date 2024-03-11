@@ -29,6 +29,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 throw new LockedException("User is blocked");
             }
         }
+        log.info("User: " + username + " found");
         return userEntity;
     }
 }

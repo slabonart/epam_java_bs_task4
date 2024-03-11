@@ -46,8 +46,10 @@ public class MainSecurityController {
                         final ModelMap model, HttpSession session) {
         String username = getUsername(session);
 
-        if (loginError && username != null && loginAttemptService.isBlocked(username)) {
-            model.addAttribute("accountLocked", Boolean.TRUE);
+        if (loginError && username != null) {
+            if (loginAttemptService.isBlocked(username)) {
+                model.addAttribute("accountLocked", Boolean.TRUE);
+            }
         }
         return "login";
     }
@@ -65,7 +67,7 @@ public class MainSecurityController {
                 .filter(userName -> loginAttemptService.isBlocked(userName))
                 .collect(Collectors.toMap(user -> user, user -> loginAttemptService.getCachedValue(user)));
 
-        if (blockedUsers.isEmpty()) {
+        if (!blockedUsers.isEmpty()) {
             model.addAttribute("blockedUsers", blockedUsers);
         }
 

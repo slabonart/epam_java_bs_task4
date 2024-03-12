@@ -6,11 +6,11 @@ import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import pl.slabonart.epam_java_bs_task4.model.UserEntity;
 import pl.slabonart.epam_java_bs_task4.repository.UserRepository;
 
-@Component
+@Service
 @RequiredArgsConstructor
 @Slf4j
 public class CustomUserDetailsService implements UserDetailsService {

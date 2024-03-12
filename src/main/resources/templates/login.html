@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container-fluid text-center">
-    <div >
+    <div>
         <div th:if="${param.error != null}" class="alert alert-danger">
             <div th:if="${accountLocked == true}">
                 <span th:text="#{user.account.locked}"/>
@@ -20,10 +20,10 @@
             <div class="border border-secondary p-3 rounded">
                 <p> Login Form</p>
                 <p>
-                    <input type="text" name="username" class="form-control" placeholder="User name" required autofocus />
+                    <input type="text" name="username" class="form-control" placeholder="User name" required autofocus/>
                 </p>
                 <p>
-                    <input type="password" class="form-control" placeholder="Password" required />
+                    <input type="password" name="password" class="form-control" placeholder="Password" required/>
                 </p>
                 <p>
                     <input type="submit" value="Login" class="btn btn-primary">
